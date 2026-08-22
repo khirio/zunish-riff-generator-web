@@ -151,6 +151,11 @@ form {
   align-items: end;
 }
 
+.form-break {
+  flex-basis: 100%;
+  height: 0;
+}
+
 label {
   display: flex;
   flex-direction: column;
