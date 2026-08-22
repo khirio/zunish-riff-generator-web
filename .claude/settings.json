@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(uv run *)",
+      "Bash(python -m pytest tests/test_content_registries.py tests/test_generator.py -q)",
+      "Bash(python -m pytest tests/ -q)",
+      "Bash(python -m pytest tests/test_content_registries.py -q)",
+      "Bash(python -m pytest tests/test_theory.py -q)",
+      "Bash(python -m pytest tests/ -v)",
+      "Bash(git -C \"c:/github/zunish-riff-generator\" log --oneline -15)",
+      "Bash(git -C \"c:/github/zunish-riff-generator\" diff -- README.md)",
+      "Bash(git -C \"c:/github/zunish-riff-generator\" status)",
+      "Bash(git fetch *)"
+    ]
+  }
+}

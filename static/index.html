@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZUNish Riff Generator Web</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="sheet">
+
+  <div class="crest-row">
+    <span class="line"></span>
+    <span class="torii-mark" aria-hidden="true">⛩️</span>
+    <span class="line"></span>
+  </div>
+
+  <h1>ZUNish Riff Generator</h1>
+  <p class="tagline">東方風フレーズ自動生成</p>
+
+  <div class="card">
+    <h2>演奏設定</h2>
+    <form id="connection-form">
+      <label>Tempo (BPM) <input type="number" id="tempo-input" min="20" max="400" step="1" placeholder="160"></label>
+      <label>Key
+        <select id="key-input">
+          <option value="C">C</option>
+          <option value="C#">C#</option>
+          <option value="D">D</option>
+          <option value="D#">D#</option>
+          <option value="E">E</option>
+          <option value="F">F</option>
+          <option value="F#">F#</option>
+          <option value="G">G</option>
+          <option value="G#">G#</option>
+          <option value="A" selected>A</option>
+          <option value="A#">A#</option>
+          <option value="B">B</option>
+        </select>
+      </label>
+      <label>Seed <input type="number" id="seed-input" placeholder="(random)"></label>
+      <button type="button" id="modulation-toggle" aria-pressed="true">転調: ON</button>
+      <button type="submit" id="start-button">開始</button>
+      <button type="button" id="stop-button" disabled>停止</button>
+      <button type="button" id="reconnect-button" hidden>再接続</button>
+    </form>
+
+    <p id="status">未接続</p>
+    <p class="readout">Tempo: <span id="tempo-display">-</span> BPM / Key: <span id="key-display">-</span>m / Seed: <span id="seed-display">-</span> / 転調: <span id="modulation-display">-</span></p>
+  </div>
+
+  <div class="card">
+    <h2>鍵盤</h2>
+    <div class="keyboard-scroll"><canvas id="keyboard-canvas"></canvas></div>
+  </div>
+
+  <div class="card">
+    <h2>音量・再生</h2>
+    <div class="sliders">
+      <label>音量 <input type="range" id="gain-input" min="0" max="2" step="0.01" value="1"></label>
+      <label>鍵盤の表示遅延 <input type="range" id="visual-delay-input" min="0" max="1000" step="10" value="300"> <span id="visual-delay-display">300</span>ms</label>
+    </div>
+    <div class="row-end">
+      <button type="button" id="download-button" disabled>MIDIをダウンロード</button>
+    </div>
+  </div>
+
+  <footer>
+    <a href="https://github.com/khirio/zunish-riff-generator-web" target="_blank" rel="noopener">GitHub: zunish-riff-generator-web</a>
+  </footer>
+
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
